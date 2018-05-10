@@ -1,7 +1,7 @@
 Push Dates for Kanboard Tasks
 =============================
 
-This plugin for kanboard adds small buttions for faster access to push the due date of tasks out by 7, 30 and 365 days
+This plugin for kanboard adds small buttions for faster access to push the due date of tasks out by 3 configurable intervals days.
 
 (Credit to the Instantactions plugin - on which this code was originally based - https://github.com/juehv/kanboard-InstantActions)
 

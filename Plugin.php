@@ -8,7 +8,29 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach('template:board:task:footer', 'CardPushDate:layout/footer');
+        $CardPushDate_interval_1 = 0;
+        if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_1'))) {
+           $CardPushDate_interval_1 = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_1');
+        }
+
+        $CardPushDate_interval_2 = 0;
+        if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_2'))) {
+           $CardPushDate_interval_2 = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_2');
+        }
+
+        $CardPushDate_interval_3 = 0;
+        if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_3'))) {
+           $CardPushDate_interval_3 = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_3');
+        }
+
+        $this->template->hook->attach('template:board:task:footer', 'CardPushDate:layout/footer',
+           array(
+                  'CardPushDate_interval_1' => $CardPushDate_interval_1,
+                  'CardPushDate_interval_2' => $CardPushDate_interval_2,
+                  'CardPushDate_interval_3' => $CardPushDate_interval_3,
+                  'CardPushDate_confirmation_given' => $CardPushDate_confirmation_given,
+                )
+        );
         $this->template->hook->attach('template:project:sidebar', 'CardPushDate:layout/sidebar');
     }
 

@@ -1,20 +1,23 @@
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
-		<?= $this->modal->confirm(
-			'thermometer-0',
-			'',
-			'CardPushDateController',
-			'push',
-			array(
-				'plugin' => 'CardPushDate',
-				'task_id' => $task['id'],
-				'project_id' => $task['project_id'],
-                                'push_days' => 7
-			)
-		) ?>
-
+         <?php if ($CardPushDate_interval_1 > 0): ?>
+                  <?=
+                       $this->modal->confirm(
+		       'thermometer-0',
+		       '',
+		       'CardPushDateController',
+		       'push',
+		       array(
+			       'plugin' => 'CardPushDate',
+			       'task_id' => $task['id'],
+	  	       	       'project_id' => $task['project_id'],
+                               'push_days' => $CardPushDate_interval_1,
+	   	       )
+       	       ) ?>
+         <?php endif ?>
 <?php endif ?>
 
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_interval_2 > 0) : ?>
 		<?= $this->modal->confirm(
 			'thermometer-1',
 			'',
@@ -24,13 +27,15 @@
 				'plugin' => 'CardPushDate',
 				'task_id' => $task['id'],
 				'project_id' => $task['project_id'],
-                                'push_days' => 30
+                                'push_days' => $CardPushDate_interval_2,
 			)
 		) ?>
 
+         <?php endif ?>
 <?php endif ?>
 
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_interval_3 > 0) : ?>
 		<?= $this->modal->confirm(
 			'thermometer-4',
 			'',
@@ -40,10 +45,11 @@
 				'plugin' => 'CardPushDate',
 				'task_id' => $task['id'],
 				'project_id' => $task['project_id'],
-                                'push_days' => 365
+                                'push_days' => $CardPushDate_interval_3,
 			)
 		) ?>
 
+         <?php endif ?>
 <?php endif ?>
 
 <style>

@@ -20,7 +20,6 @@ class CardPushDateController extends BaseController
 
 	if ($this->request->getStringParam('confirmation') === 'yes') {
             $this->checkCSRFParam();
-
 		$values = array();
 		$valuesx = $task;
 		$tagsx = $this->taskTagModel->getTagsByTask($task['id']);

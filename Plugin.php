@@ -31,7 +31,9 @@ class Plugin extends Base
                   'CardPushDate_confirmation_given' => $CardPushDate_confirmation_given,
                 )
         );
+
         $this->template->hook->attach('template:project:sidebar', 'CardPushDate:layout/sidebar');
+        $this->template->hook->attach('template:task:dropdown', 'CardPushDate:layout/task/dropdown');
     }
 
     public function getPluginName()

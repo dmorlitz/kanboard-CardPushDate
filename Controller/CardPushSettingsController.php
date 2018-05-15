@@ -65,6 +65,9 @@ class CardPushSettingsController extends BaseController
                 'CardPushDate_interval_1'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_1'),
                 'CardPushDate_interval_2'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_2'),
                 'CardPushDate_interval_3'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_3'),
+                'CardPushDate_interval_1_randomize'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_1_randomize'),
+                'CardPushDate_interval_2_randomize'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_2_randomize'),
+                'CardPushDate_interval_3_randomize'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_3_randomize'),
                 'project_id' => $_REQUEST['project_id'],
 		),
             'errors' => $errors,
@@ -86,6 +89,9 @@ class CardPushSettingsController extends BaseController
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_1' => $values["CardPushDate_interval_1"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_2' => $values["CardPushDate_interval_2"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_3' => $values["CardPushDate_interval_3"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_1_randomize' => $values["CardPushDate_interval_1_randomize"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_2_randomize' => $values["CardPushDate_interval_2_randomize"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_3_randomize' => $values["CardPushDate_interval_3_randomize"]));
 
             //DMM: Settings panels seem to remain on the panel after saving - so I disabled this redirect back to the board
             //$this->response->redirect($this->helper->url->to('BoardViewController', 'show', array('project_id' => $project['id'])), true);

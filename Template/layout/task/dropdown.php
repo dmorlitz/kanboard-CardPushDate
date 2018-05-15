@@ -6,7 +6,11 @@
                 if ($CardPushDate_interval_1 == "") {
                      $CardPushDate_interval_1 = 0;
                 } else {
-                     $CardPushDate_interval_1 = intval($CardPushDate_interval_1);
+                   if ($CardPushDate_interval_1_randomize != "0") {
+                       $CardPushDate_interval_1 = rand(1,$CardPushDate_interval_1);
+                   } else {
+                        $CardPushDate_interval_1 = intval($CardPushDate_interval_1);
+                   }
                 }
       }
 ?>
@@ -43,7 +47,11 @@
                 if ($CardPushDate_interval_2 == "") {
                      $CardPushDate_interval_2 = 0;
                 } else {
-                     $CardPushDate_interval_2 = intval($CardPushDate_interval_2);
+                   if ($CardPushDate_interval_2_randomize != "0") {
+                       $CardPushDate_interval_2 = rand(1,$CardPushDate_interval_2);
+                   } else {
+                        $CardPushDate_interval_2 = intval($CardPushDate_interval_2);
+                   }
                 }
       }
 ?>
@@ -80,7 +88,11 @@
                 if ($CardPushDate_interval_3 == "") {
                      $CardPushDate_interval_3 = 0;
                 } else {
-                     $CardPushDate_interval_3 = intval($CardPushDate_interval_3);
+                   if ($CardPushDate_interval_3_randomize != "0") {
+                       $CardPushDate_interval_3 = rand(1,$CardPushDate_interval_3);
+                   } else {
+                        $CardPushDate_interval_3 = intval($CardPushDate_interval_3);
+                   }
                 }
       }
 ?>

@@ -1,5 +1,18 @@
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php
+             if ($CardPushDate_interval_1_randomize != "0") {
+                 $CardPushDate_interval_1 = rand(1,$CardPushDate_interval_1);
+             }
+             if ($CardPushDate_interval_2_randomize != "0") {
+                 $CardPushDate_interval_2 = rand(1,$CardPushDate_interval_2);
+             }
+             if ($CardPushDate_interval_3_randomize != "0") {
+                 $CardPushDate_interval_3 = rand(1,$CardPushDate_interval_3);
+             }
+         ?>
+
          <?php if ($CardPushDate_interval_1 > 0): ?>
+<?php //echo "<pre>";var_dump($CardPushDate_interval_1_randomize);echo "</pre>"; ?>
                   <?=
                        $this->modal->confirm(
 		       'thermometer-0',

@@ -8,17 +8,32 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $CardPushDate_interval_1 = 0;
+        $CardPushDate_interval_1_randomize = "0";
+        if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_1_randomize'))) {
+           $CardPushDate_interval_1_randomize = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_1_randomize');
+        }
+
+        $CardPushDate_interval_2_randomize = "0";
+        if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_2_randomize'))) {
+           $CardPushDate_interval_2_randomize = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_2_randomize');
+        }
+
+        $CardPushDate_interval_3_randomize = "0";
+        if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_3_randomize'))) {
+           $CardPushDate_interval_3_randomize = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_3_randomize');
+        }
+
+        $CardPushDate_interval_1 = "0";
         if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_1'))) {
            $CardPushDate_interval_1 = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_1');
         }
 
-        $CardPushDate_interval_2 = 0;
+        $CardPushDate_interval_2 = "0";
         if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_2'))) {
            $CardPushDate_interval_2 = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_2');
         }
 
-        $CardPushDate_interval_3 = 0;
+        $CardPushDate_interval_3 = "0";
         if (!empty($this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_3'))) {
            $CardPushDate_interval_3 = $this->projectMetadataModel->get($_REQUEST['project_id'], 'CardPushDate_interval_3');
         }
@@ -28,7 +43,9 @@ class Plugin extends Base
                   'CardPushDate_interval_1' => $CardPushDate_interval_1,
                   'CardPushDate_interval_2' => $CardPushDate_interval_2,
                   'CardPushDate_interval_3' => $CardPushDate_interval_3,
-                  'CardPushDate_confirmation_given' => $CardPushDate_confirmation_given,
+                  'CardPushDate_interval_1_randomize' => $CardPushDate_interval_1_randomize,
+                  'CardPushDate_interval_2_randomize' => $CardPushDate_interval_2_randomize,
+                  'CardPushDate_interval_3_randomize' => $CardPushDate_interval_3_randomize,
                 )
         );
 

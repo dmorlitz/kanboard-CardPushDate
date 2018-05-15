@@ -1,18 +1,34 @@
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php
-             if ($CardPushDate_interval_1_randomize != "0") {
+             $CardPushDate_interval_1 = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_1");
+             $CardPushDate_interval_2 = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_2");
+             $CardPushDate_interval_3 = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_3");
+
+             $CardPushDate_interval_1 = ( intval($CardPushDate_interval_1) > 0 ) ? intval($CardPushDate_interval_1) : 0;
+             $CardPushDate_interval_2 = ( intval($CardPushDate_interval_2) > 0 ) ? intval($CardPushDate_interval_2) : 0;
+             $CardPushDate_interval_3 = ( intval($CardPushDate_interval_3) > 0 ) ? intval($CardPushDate_interval_3) : 0;
+
+             $CardPushDate_interval_1_randomize = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_1_randomize");
+             $CardPushDate_interval_2_randomize = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_2_randomize");
+             $CardPushDate_interval_3_randomize = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_3_randomize");
+
+             $CardPushDate_interval_1_randomize = ( intval($CardPushDate_interval_1_randomize) > 0 ) ? intval($CardPushDate_interval_1_randomize) : 0;
+             $CardPushDate_interval_2_randomize = ( intval($CardPushDate_interval_2_randomize) > 0 ) ? intval($CardPushDate_interval_2_randomize) : 0;
+             $CardPushDate_interval_3_randomize = ( intval($CardPushDate_interval_3_randomize) > 0 ) ? intval($CardPushDate_interval_3_randomize) : 0;
+
+             if ($CardPushDate_interval_1_randomize == "1") {
                  $CardPushDate_interval_1 = rand(1,$CardPushDate_interval_1);
              }
-             if ($CardPushDate_interval_2_randomize != "0") {
+             if ($CardPushDate_interval_2_randomize == "1") {
                  $CardPushDate_interval_2 = rand(1,$CardPushDate_interval_2);
              }
-             if ($CardPushDate_interval_3_randomize != "0") {
+             if ($CardPushDate_interval_3_randomize == "1") {
                  $CardPushDate_interval_3 = rand(1,$CardPushDate_interval_3);
              }
          ?>
 
+<?php //echo "<pre>";var_dump($task);echo "</pre>"; ?>
          <?php if ($CardPushDate_interval_1 > 0): ?>
-<?php //echo "<pre>";var_dump($CardPushDate_interval_1_randomize);echo "</pre>"; ?>
                   <?=
                        $this->modal->confirm(
 		       'thermometer-0',

@@ -12,18 +12,24 @@
              $CardPushDate_interval_2_randomize = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_2_randomize");
              $CardPushDate_interval_3_randomize = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_3_randomize");
 
-             $CardPushDate_interval_1_randomize = ( intval($CardPushDate_interval_1_randomize) > 0 ) ? intval($CardPushDate_interval_1_randomize) : 0;
-             $CardPushDate_interval_2_randomize = ( intval($CardPushDate_interval_2_randomize) > 0 ) ? intval($CardPushDate_interval_2_randomize) : 0;
-             $CardPushDate_interval_3_randomize = ( intval($CardPushDate_interval_3_randomize) > 0 ) ? intval($CardPushDate_interval_3_randomize) : 0;
+             $CardPushDate_interval_1_randomize = ( intval($CardPushDate_interval_1_randomize) > 0 ) ? 1 : 0;
+             $CardPushDate_interval_2_randomize = ( intval($CardPushDate_interval_2_randomize) > 0 ) ? 1 : 0;
+             $CardPushDate_interval_3_randomize = ( intval($CardPushDate_interval_3_randomize) > 0 ) ? 1 : 0;
+
+             $CardPushDate_show_edit = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_edit");
+             $CardPushDate_show_close = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close");
+
+             $CardPushDate_show_edit = ( intval($CardPushDate_show_edit) > 0 ) ? 1 : 0;
+             $CardPushDate_show_close = ( intval($CardPushDate_show_close) > 0 ) ? 1 : 0;
 
              if ($CardPushDate_interval_1_randomize == "1") {
                  $CardPushDate_interval_1 = rand(1,$CardPushDate_interval_1);
              }
              if ($CardPushDate_interval_2_randomize == "1") {
-                 $CardPushDate_interval_2 = rand(1,$CardPushDate_interval_2);
+                 $CardPushDate_interval_2 = rand($CardPushDate_interval_1 + 1,$CardPushDate_interval_2);
              }
              if ($CardPushDate_interval_3_randomize == "1") {
-                 $CardPushDate_interval_3 = rand(1,$CardPushDate_interval_3);
+                 $CardPushDate_interval_3 = rand($CardPushDate_interval_2 + 1,$CardPushDate_interval_3);
              }
          ?>
 
@@ -78,6 +84,18 @@
 			)
 		) ?>
 
+         <?php endif ?>
+<?php endif ?>
+
+<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_show_edit == 1) : ?>
+		<?= $this->modal->large('edit', t(''), 'TaskModificationController', 'edit', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+         <?php endif ?>
+<?php endif ?>
+
+<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_show_close == 1) : ?>
+                <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'close', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
          <?php endif ?>
 <?php endif ?>
 

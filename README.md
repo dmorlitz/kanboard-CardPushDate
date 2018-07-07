@@ -1,7 +1,14 @@
 Push Dates for Kanboard Tasks
 =============================
 
-This plugin for kanboard adds small buttions for faster access to push the due date of tasks out by 3 configurable intervals days.
+This plugin for kanboard adds small buttions on each task card to access frequently used functions.  These functions are:
+1) Push the due date of a task out XX number of days (3 customizable intervals and they can be randomized)
+2) Add a comment to a card
+3) Edit a card
+4) Close a card
+5) Show the last comment for a task on it's card
+
+These settings are customizable by project.
 
 (Credit to the Instantactions plugin - on which this code was originally based - https://github.com/juehv/kanboard-InstantActions)
 

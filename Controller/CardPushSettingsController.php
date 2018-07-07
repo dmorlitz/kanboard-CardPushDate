@@ -9,7 +9,7 @@ use Kanboard\Controller\BaseController;
 class CardPushSettingsController extends BaseController
 {
     /**
-     * Instant Action Settingsgt
+     * Card Push Action Settings
      *
      * @access public
      * @param array $values
@@ -68,6 +68,8 @@ class CardPushSettingsController extends BaseController
                 'CardPushDate_interval_1_randomize'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_1_randomize'),
                 'CardPushDate_interval_2_randomize'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_2_randomize'),
                 'CardPushDate_interval_3_randomize'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_interval_3_randomize'),
+                'CardPushDate_show_add_comment'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_add_comment'),
+                'CardPushDate_show_comment'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_comment'),
                 'CardPushDate_show_edit'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_edit'),
                 'CardPushDate_show_close'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_close'),
                 'project_id' => $_REQUEST['project_id'],
@@ -94,6 +96,8 @@ class CardPushSettingsController extends BaseController
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_1_randomize' => $values["CardPushDate_interval_1_randomize"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_2_randomize' => $values["CardPushDate_interval_2_randomize"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_interval_3_randomize' => $values["CardPushDate_interval_3_randomize"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_add_comment' => $values["CardPushDate_show_add_comment"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_comment' => $values["CardPushDate_show_comment"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_edit' => $values["CardPushDate_show_edit"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_close' => $values["CardPushDate_show_close"]));
 

@@ -35,7 +35,7 @@ class Plugin extends Base
 
     public function getPluginHomepage()
     {
-        return 'https://github.com/dmorlitz/CardPush';
+        return 'https://github.com/dmorlitz/CardPushDate';
     }
 }
 ?>

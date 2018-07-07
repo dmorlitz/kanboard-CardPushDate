@@ -35,6 +35,10 @@
         <?= $this->form->text('CardPushDate_interval_3', $values, $errors, array('required', 'autofocus', 'tabindex="3"')) ?>
         <?= $this->form->checkbox('CardPushDate_interval_3_randomize', t('Randomize between interval 2 and interval 3'), 1, isset($values['CardPushDate_interval_3_randomize']) && $values['CardPushDate_interval_3_randomize'] == 1 ? true : false) ?><br/>
 
+        <?= $this->form->checkbox('CardPushDate_show_comment', t('Show last comment on card'), 1, isset($values['CardPushDate_show_comment']) && $values['CardPushDate_show_comment'] == 1 ? true : false) ?>
+
+        <?= $this->form->checkbox('CardPushDate_show_add_comment', t('Show add comment icon'), 1, isset($values['CardPushDate_show_add_comment']) && $values['CardPushDate_show_add_comment'] == 1 ? true : false) ?>
+
         <?= $this->form->checkbox('CardPushDate_show_edit', t('Show edit task icon'), 1, isset($values['CardPushDate_show_edit']) && $values['CardPushDate_show_edit'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_close', t('Show close task icon'), 1, isset($values['CardPushDate_show_close']) && $values['CardPushDate_show_close'] == 1 ? true : false) ?>

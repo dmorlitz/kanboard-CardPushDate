@@ -139,3 +139,21 @@
 /************************************************************************************************************************/
 /************************************************************************************************************************/
 ?>
+
+<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_interval_3 > 0) : ?>
+		<li>
+		<?= $this->modal->confirm(
+			'thermometer-4',
+			'Move task to another column in this project',
+			'TaskDuplicationController',
+			'move',
+			array(
+				'task_id' => $task['id'],
+				'project_id' => $task['project_id'],
+				'dst_project_id' => $task['project_id'],
+			)
+		) ?>
+		</li>
+         <?php endif ?>
+<?php endif ?>

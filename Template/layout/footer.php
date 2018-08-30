@@ -55,10 +55,10 @@
 <?php endif; ?>
 
 <?php //echo "<pre>";var_dump($task);echo "</pre>"; ?>
+
          <?php if ($CardPushDate_interval_1 > 0): ?>
                   <?=
-                       $this->modal->confirm(
-		       'clock-o',
+                       $this->modal->confirmLink(
 		       '+' . $CardPushDate_interval_1,
 		       'CardPushDateController',
 		       'push',
@@ -74,8 +74,7 @@
 
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php if ($CardPushDate_interval_2 > 0) : ?>
-		<?= $this->modal->confirm(
-			'clock-o',
+		<?= $this->modal->confirmLink(
 			'+' . $CardPushDate_interval_2,
 			'CardPushDateController',
 			'push',
@@ -92,8 +91,7 @@
 
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php if ($CardPushDate_interval_3 > 0) : ?>
-		<?= $this->modal->confirm(
-			'clock-o',
+		<?= $this->modal->confirmLink(
 			'+' . $CardPushDate_interval_3,
 			'CardPushDateController',
 			'push',
@@ -107,6 +105,8 @@
 
          <?php endif ?>
 <?php endif ?>
+
+<?php if ($CardPushDate_interval_1 + $CardPushDate_interval_2 + $CardPushDate_interval_3 > 0) { echo " days | ";} ?>
 
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php if ($CardPushDate_show_add_comment == 1) : ?>

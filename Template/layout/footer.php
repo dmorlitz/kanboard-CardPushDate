@@ -126,7 +126,6 @@
          <?php endif ?>
 <?php endif ?>
 
-<? // DMM: Move icon - temporarily forced on until parameter created ?>
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php if ($CardPushDate_show_move == 1) : ?>
 		<?= $this->modal->confirm(

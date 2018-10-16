@@ -71,6 +71,7 @@ class CardPushSettingsController extends BaseController
                 'CardPushDate_show_add_comment'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_add_comment'),
                 'CardPushDate_show_comment'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_comment'),
                 'CardPushDate_show_comment_in_dropdown'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_comment_in_dropdown'),
+                'CardPushDate_show_comment_in_collapsed'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_comment_in_collapsed'),
                 'CardPushDate_show_edit'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_edit'),
                 'CardPushDate_show_close'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_close'),
                 'CardPushDate_show_move'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_move'),
@@ -101,6 +102,7 @@ class CardPushSettingsController extends BaseController
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_add_comment' => $values["CardPushDate_show_add_comment"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_comment' => $values["CardPushDate_show_comment"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_comment_in_dropdown' => $values["CardPushDate_show_comment_in_dropdown"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_comment_in_collapsed' => $values["CardPushDate_show_comment_in_collapsed"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_edit' => $values["CardPushDate_show_edit"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_close' => $values["CardPushDate_show_close"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_move' => $values["CardPushDate_show_move"]));

@@ -39,6 +39,8 @@
 
         <?= $this->form->checkbox('CardPushDate_show_comment_in_dropdown', t('Show last comment on card in dropdown'), 1, isset($values['CardPushDate_show_comment_in_dropdown']) && $values['CardPushDate_show_comment_in_dropdown'] == 1 ? true : false) ?>
 
+        <?= $this->form->checkbox('CardPushDate_show_comment_in_collapsed', t('Show last comment on card in collapsed view'), 1, isset($values['CardPushDate_show_comment_in_collapsed']) && $values['CardPushDate_show_comment_in_collapsed'] == 1 ? true : false) ?>
+
         <?= $this->form->checkbox('CardPushDate_show_add_comment', t('Show add comment icon'), 1, isset($values['CardPushDate_show_add_comment']) && $values['CardPushDate_show_add_comment'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_edit', t('Show edit task icon'), 1, isset($values['CardPushDate_show_edit']) && $values['CardPushDate_show_edit'] == 1 ? true : false) ?>

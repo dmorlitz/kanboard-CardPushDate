@@ -16,6 +16,7 @@
              $CardPushDate_interval_3_randomize = ( intval($CardPushDate_interval_3_randomize) > 0 ) ? intval($CardPushDate_interval_3_randomize) : 0;
 
              $CardPushDate_show_comment_in_dropdown = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_dropdown");
+             $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
 ?>
 
 <?php

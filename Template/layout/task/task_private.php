@@ -48,6 +48,9 @@
                     }
                 }
             ?>
+            <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+                <?= $this->modal->small('comment-o', t(''), 'CommentController', 'create', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+            <?php endif ?>
         <?php endif; ?>
     <?php else: ?>
         <div class="task-board-expanded">

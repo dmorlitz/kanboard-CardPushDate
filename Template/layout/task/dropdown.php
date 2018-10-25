@@ -33,7 +33,7 @@
                  foreach ($comments as $comment):
                      $display_comment = date("m/d/Y", $comment['date_creation']) . ': ' . $comment['comment']; //Keep overwriting the displayed comment until we reach the last one
                  endforeach;
-                 if ($display_comment != "") {
+                 if ($isset($display_comment) && $display_comment != "") {
                      echo "<li>" . $display_comment;
                  }
              }

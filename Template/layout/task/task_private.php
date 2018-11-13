@@ -19,7 +19,8 @@
     <div class="task-board-sort-handle" style="display: none;"><i class="fa fa-arrows-alt"></i></div>
 
     <?php if ($this->board->isCollapsed($task['project_id'])): ?>
-        <div class="task-board-collapsed">
+        <!--Switch to expanded to allow titles to wrap <div class="task-board-collapsed">-->
+        <div class="task-board-expanded">
             <div class="task-board-saving-icon" style="display: none;"><i class="fa fa-spinner fa-pulse"></i></div>
             <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
                 <?= $this->render('task/dropdown', array('task' => $task, 'redirect' => 'board')) ?>
@@ -44,7 +45,7 @@
                         $display_comment = date("m/d/Y", $comment['date_creation']) . ': ' . $comment['comment']; //Keep overwriting the displayed comment until we reach the last one
                     endforeach;
                     if (isset($display_comment)) {
-                        echo $display_comment;
+                        echo "<hr>" . $display_comment;
                     }
                 }
             ?>

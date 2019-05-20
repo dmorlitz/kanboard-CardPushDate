@@ -1,5 +1,6 @@
 <?php
     $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
+    $CardPushDate_show_close_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close_in_collapsed");
 ?>
 
 <div class="
@@ -50,7 +51,18 @@
                 }
             ?>
             <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
-                <?= $this->modal->small('comment-o', t(''), 'CommentController', 'create', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+                <?php if ($CardPushDate_show_comment_in_collapsed == "1") { ?>
+                   <?= $this->modal->small('comment-o', t(''), 'CommentController', 'create', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+                <?php } ?>
+            <?php endif ?>
+            <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+            <?php
+                if ($CardPushDate_show_close_in_collapsed == "1") {
+            ?>
+                    <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'close', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+            <?php
+                }
+            ?>
             <?php endif ?>
         <?php endif; ?>
     <?php else: ?>

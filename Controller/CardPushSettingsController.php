@@ -74,6 +74,7 @@ class CardPushSettingsController extends BaseController
                 'CardPushDate_show_comment_in_collapsed'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_comment_in_collapsed'),
                 'CardPushDate_show_edit'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_edit'),
                 'CardPushDate_show_close'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_close'),
+                'CardPushDate_show_close_in_collapsed'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_close_in_collapsed'),
                 'CardPushDate_show_move'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_move'),
                 'project_id' => $_REQUEST['project_id'],
 		),
@@ -105,6 +106,7 @@ class CardPushSettingsController extends BaseController
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_comment_in_collapsed' => $values["CardPushDate_show_comment_in_collapsed"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_edit' => $values["CardPushDate_show_edit"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_close' => $values["CardPushDate_show_close"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_close_in_collapsed' => $values["CardPushDate_show_close_in_collapsed"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_move' => $values["CardPushDate_show_move"]));
 
             //DMM: Settings panels seem to remain on the panel after saving - so I disabled this redirect back to the board

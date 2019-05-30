@@ -9,8 +9,8 @@ class Plugin extends Base
     public function initialize()
     {
         $this->template->hook->attach('template:search:task:footer', 'CardPushDate:layout/footer');
-        //$this->template->hook->attach('template:dashboard:task:footer', 'CardPushDate:layout/footer');
-        //$this->template->hook->attach('template:board:task:footer', 'CardPushDate:layout/footer');
+        $this->template->hook->attach('template:dashboard:task:footer', 'CardPushDate:layout/footer');
+        $this->template->hook->attach('template:board:task:footer', 'CardPushDate:layout/footer');
         $this->template->hook->attach('template:project:sidebar', 'CardPushDate:layout/sidebar');
         $this->template->hook->attach('template:task:dropdown', 'CardPushDate:layout/task/dropdown');
 	$this->template->setTemplateOverride('board/task_private', 'CardPushDate:layout/task/task_private');

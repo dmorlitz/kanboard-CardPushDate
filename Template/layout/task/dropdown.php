@@ -171,7 +171,7 @@
          <?php if ($CardPushDate_interval_3 > 0) : ?>
 		<li>
 		<?= $this->modal->confirm(
-			'thermometer-4',
+			'arrows-h',
 			'Move task to another column in this project',
 			'TaskDuplicationController',
 			'move',
@@ -184,3 +184,10 @@
 		</li>
          <?php endif ?>
 <?php endif ?>
+
+<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+   <li>
+   <?= $this->modal->confirm('comment-o', t('Add comment'), 'CommentController', 'create', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+   </li>
+<?php endif ?>
+

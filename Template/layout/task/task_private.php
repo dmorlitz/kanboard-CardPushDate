@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
 ?>
@@ -100,7 +99,7 @@
         </div>
     <?php endif ?>
 </div>
-=======
+
 <?php
     $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
     $CardPushDate_show_close_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close_in_collapsed");
@@ -202,4 +201,3 @@
         </div>
     <?php endif ?>
 </div>
->>>>>>> 4f6347ea2ae1b86363063d049d2264769fe6c766

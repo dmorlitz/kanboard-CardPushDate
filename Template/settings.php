@@ -47,6 +47,8 @@
 
         <?= $this->form->checkbox('CardPushDate_show_close', t('Show close task icon'), 1, isset($values['CardPushDate_show_close']) && $values['CardPushDate_show_close'] == 1 ? true : false) ?>
 
+        <?= $this->form->checkbox('CardPushDate_show_close_in_collapsed', t('Show close button in collapsed view'), 1, isset($values['CardPushDate_show_close_in_collapsed']) && $values['CardPushDate_show_close_in_collapsed'] == 1 ? true : false) ?>
+
         <?= $this->form->checkbox('CardPushDate_show_move', t('Show move task icon'), 1, isset($values['CardPushDate_show_move']) && $values['CardPushDate_show_move'] == 1 ? true : false) ?>
 
 <br><b>NOTE:</b> Randomized dates will be between the specified interval and the previous interval.  Interval 3 must be the greatest and interval 1 the smallest.

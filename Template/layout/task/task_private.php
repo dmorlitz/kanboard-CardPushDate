@@ -40,6 +40,22 @@
 
         <?php //Display the last comment on the card - if requested by settings ?>
         <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+
+            <?php if (! empty($task['date_due'])): ?>
+                <p>
+                <span class="task-date
+                    <?php if (time() > $task['date_due']): ?>
+                         task-date-overdue
+                    <?php elseif (date('Y-m-d') == date('Y-m-d', $task['date_due'])): ?>
+                         task-date-today
+                    <?php endif ?>
+                    ">
+                    <i class="fa fa-calendar"></i>
+                    Due
+                    <?= $this->dt->datetime($task['date_due']) ?>
+                </span>
+            <?php endif ?>
+
             <?php
                 if ($CardPushDate_show_comment_in_collapsed == "1") {
                     $comments = $this->task->commentModel->getAll($task['id'], 'ASC');
@@ -51,10 +67,10 @@
                     }
                 }
             ?>
-
             <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
                 <?= $this->modal->small('comment-o', t(''), 'CommentController', 'create', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
             <?php endif ?>
+
         <?php endif; ?>
     <?php else: ?>
         <div class="task-board-expanded">

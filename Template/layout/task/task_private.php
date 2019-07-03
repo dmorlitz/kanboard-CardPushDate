@@ -51,7 +51,6 @@
                     <?php endif ?>
                     ">
                     <i class="fa fa-calendar"></i>
-                    Due
                     <?= $this->dt->datetime($task['date_due']) ?>
                 </span>
             <?php endif ?>

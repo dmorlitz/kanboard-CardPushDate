@@ -1,4 +1,7 @@
 <?php
+    $CardPushDate_show_comment = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment");
+    $CardPushDate_show_comment = ( intval($CardPushDate_show_comment) > 0 ) ? intval($CardPushDate_show_comment) : 0;
+
     $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
 ?>
 
@@ -39,6 +42,7 @@
         </div>
 
         <?php //Display the last comment on the card - if requested by settings ?>
+
         <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
 
             <?php if (! empty($task['date_due'])): ?>
@@ -98,13 +102,16 @@
             <?= $this->hook->render('template:board:private:task:after-title', array('task' => $task)) ?>
 
             <?php // Display the last comment
-               $comments = $this->task->commentModel->getAll($task['id'], 'ASC');
-               foreach ($comments as $comment):
-                  $display_comment = date("m/d/Y", $comment['date_creation']) . ': ' . $comment['comment']; //Keep overwriting the displayed comment until we reach the last one
-               endforeach;
-               if (isset($display_comment)) {
-                  echo "<hr>" . $display_comment;
-               }
+               // This section will find all of the comments, get the last one and display it on a card
+               if ($CardPushDate_show_comment == 1) {
+                  $comments = $this->task->commentModel->getAll($task['id'], 'ASC');
+                  foreach ($comments as $comment):
+                     $display_comment = date("m/d/Y", $comment['date_creation']) . ': ' . $comment['comment']; //Keep overwriting the displayed comment until we reach the last one
+                  endforeach;
+                  if (isset($display_comment)) {
+                     echo "<hr>" . $display_comment;
+                  }
+               } // END show comment
             ?>
 
             <?= $this->render('board/task_footer', array(

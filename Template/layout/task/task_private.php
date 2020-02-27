@@ -3,6 +3,7 @@
     $CardPushDate_show_comment = ( intval($CardPushDate_show_comment) > 0 ) ? intval($CardPushDate_show_comment) : 0;
 
     $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
+    $CardPushDate_show_close_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close_in_collapsed");
 ?>
 
 <div class="
@@ -57,6 +58,12 @@
                     <i class="fa fa-calendar"></i>
                     <?= $this->dt->datetime($task['date_due']) ?>
                 </span>
+            <?php endif ?>
+
+            <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+                     <?php if ($CardPushDate_show_close_in_collapsed == 1) : ?>
+                            <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'close', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+                     <?php endif ?>
             <?php endif ?>
 
             <?php

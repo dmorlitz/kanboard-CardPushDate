@@ -39,25 +39,6 @@
              }
          ?>
 
-<?php //Display the last comment on the card - if requested by settings ?>
-<?php //if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
-         <?php
-/*
-             if ($CardPushDate_show_comment == "1") {
-                 $comments = $this->task->commentModel->getAll($task['id'], 'ASC');
-                 foreach ($comments as $comment):
-                     $display_comment = date("m/d/Y", $comment['date_creation']) . ': ' . $comment['comment']; //Keep overwriting the displayed comment until we reach the last one
-                 endforeach;
-                 if ( (isset($display_comment)) && ($display_comment != "") ) {
-                     echo $display_comment . "<br>";
-                 }
-             }
-*/
-         ?>
-<?php //endif; ?>
-
-<?php //echo "<pre>";var_dump($task);echo "</pre>"; ?>
-
          <?php if ($CardPushDate_interval_1 > 0): ?>
                   <?=
                        $this->modal->confirmLink(

@@ -16,6 +16,7 @@
              $CardPushDate_interval_2_randomize = ( intval($CardPushDate_interval_2_randomize) > 0 ) ? 1 : 0;
              $CardPushDate_interval_3_randomize = ( intval($CardPushDate_interval_3_randomize) > 0 ) ? 1 : 0;
 
+             $CardPushDate_interval_Monday = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_Monday");
              $CardPushDate_show_add_comment = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_add_comment");
              $CardPushDate_show_comment = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment");
              $CardPushDate_show_edit = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_edit");
@@ -38,6 +39,21 @@
                  $CardPushDate_interval_3 = rand($CardPushDate_interval_2 + 1,$CardPushDate_interval_3);
              }
          ?>
+
+         <?php if ($CardPushDate_interval_Monday > 0): ?>
+                  <?=
+                       $this->modal->confirmLink(
+		       '+Mon',
+		       'CardPushDateController',
+		       'push',
+		       array(
+			       'plugin' => 'CardPushDate',
+			       'task_id' => $task['id'],
+	  	       	       'project_id' => $task['project_id'],
+                               'push_days' => strval(8 - intval(date('w'))),
+	   	       )
+       	       ) ?>
+         <?php endif ?>
 
          <?php if ($CardPushDate_interval_1 > 0): ?>
                   <?=

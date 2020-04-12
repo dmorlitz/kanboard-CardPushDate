@@ -50,7 +50,7 @@
 			       'plugin' => 'CardPushDate',
 			       'task_id' => $task['id'],
 	  	       	       'project_id' => $task['project_id'],
-                               'push_days' => strval(8 - intval(date('w'))),
+                               'push_days' => strval( (8 - intval(date('w'))) % 7),
 	   	       )
        	       ) ?>
          <?php endif ?>

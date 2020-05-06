@@ -4,6 +4,8 @@
              $CardPushDate_interval_2 = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_2");
              $CardPushDate_interval_3 = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_3");
 
+             $CardPushDate_push_time = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_push_time");
+
              $CardPushDate_interval_1 = ( intval($CardPushDate_interval_1) > 0 ) ? intval($CardPushDate_interval_1) : 0;
              $CardPushDate_interval_2 = ( intval($CardPushDate_interval_2) > 0 ) ? intval($CardPushDate_interval_2) : 0;
              $CardPushDate_interval_3 = ( intval($CardPushDate_interval_3) > 0 ) ? intval($CardPushDate_interval_3) : 0;
@@ -31,6 +33,10 @@
              if ($CardPushDate_interval_3_randomize == "1") {
                  $CardPushDate_interval_3 = rand($CardPushDate_interval_2 + 1,$CardPushDate_interval_3);
              }
+
+             if ($CardPushDate_push_time == "") {
+                 $CardPushDate_push_time = "00:00";
+             }
          ?>
 
          <?php if ($CardPushDate_interval_1 > 0): ?>
@@ -44,6 +50,7 @@
 			       'task_id' => $task['id'],
 	  	       	       'project_id' => $task['project_id'],
                                'push_days' => $CardPushDate_interval_1,
+                               'push_time' => $CardPushDate_push_time,
 	   	       )
        	       ) ?>
          <?php endif ?>
@@ -60,6 +67,7 @@
 				'task_id' => $task['id'],
 				'project_id' => $task['project_id'],
                                 'push_days' => $CardPushDate_interval_2,
+                               'push_time' => $CardPushDate_push_time,
 			)
 		) ?>
 
@@ -77,6 +85,7 @@
 				'task_id' => $task['id'],
 				'project_id' => $task['project_id'],
                                 'push_days' => $CardPushDate_interval_3,
+                               'push_time' => $CardPushDate_push_time,
 			)
 		) ?>
 
@@ -114,6 +123,7 @@
 			'task_id' => $task['id'],
 			'project_id' => $task['project_id'],
 			'dst_project_id' => $task['project_id'],
+                        'push_time' => $REQUEST['push_time'],
 			)
 		) ?>
 	<?php endif ?>

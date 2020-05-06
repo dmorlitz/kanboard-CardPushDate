@@ -28,7 +28,8 @@ class CardPushDateController extends BaseController
 
 	if (true){
 //DMM
-		$values['date_due'] = date('Y-m-d', strtotime("+" . abs(intval($this->request->getStringParam('push_days'))) . " days"));
+		//$values['date_due'] = date('Y-m-d', strtotime("+" . abs(intval($this->request->getStringParam('push_days'))) . " days"));
+		$values['date_due'] = date('Y-m-d H:i', strtotime("+" . abs(intval($this->request->getStringParam('push_days'))) . " days " . $this->request->getStringParam('push_time') ));
 //DMM
 		$this->taskModificationModel->update($values);
                 $this->flash->success($success_message);

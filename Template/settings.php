@@ -38,21 +38,15 @@
         <?= $this->form->label(t('Time to set on pushed tasks in 24h format (blank will set to 00:00 - invalid time will be set to 00:01)'), 'CardPushDate_push_time') ?>
         <?= $this->form->text('CardPushDate_push_time', $values, $errors, array('autofocus', 'tabindex="3"')) ?>
 
-        <?= $this->form->checkbox('CardPushDate_interval_Monday', t('Show "push to Monday" on card'), 1, isset($values['CardPushDate_interval_Monday']) && $values['CardPushDate_interval_Monday'] == 1 ? true : false) ?>
+        <?= $this->form->checkbox('CardPushDate_interval_Monday', t('Show "Push to Monday" on card'), 1, isset($values['CardPushDate_interval_Monday']) && $values['CardPushDate_interval_Monday'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_comment', t('Show last comment on card'), 1, isset($values['CardPushDate_show_comment']) && $values['CardPushDate_show_comment'] == 1 ? true : false) ?>
-
-        <?= $this->form->checkbox('CardPushDate_show_comment_in_dropdown', t('Show last comment on card in dropdown'), 1, isset($values['CardPushDate_show_comment_in_dropdown']) && $values['CardPushDate_show_comment_in_dropdown'] == 1 ? true : false) ?>
-
-        <?= $this->form->checkbox('CardPushDate_show_comment_in_collapsed', t('Show last comment on card in collapsed view'), 1, isset($values['CardPushDate_show_comment_in_collapsed']) && $values['CardPushDate_show_comment_in_collapsed'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_add_comment', t('Show add comment icon'), 1, isset($values['CardPushDate_show_add_comment']) && $values['CardPushDate_show_add_comment'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_edit', t('Show edit task icon'), 1, isset($values['CardPushDate_show_edit']) && $values['CardPushDate_show_edit'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_close', t('Show close task icon'), 1, isset($values['CardPushDate_show_close']) && $values['CardPushDate_show_close'] == 1 ? true : false) ?>
-
-        <?= $this->form->checkbox('CardPushDate_show_close_in_collapsed', t('Show close button in collapsed view'), 1, isset($values['CardPushDate_show_close_in_collapsed']) && $values['CardPushDate_show_close_in_collapsed'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_move', t('Show move task icon'), 1, isset($values['CardPushDate_show_move']) && $values['CardPushDate_show_move'] == 1 ? true : false) ?>
 

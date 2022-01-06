@@ -47,7 +47,11 @@
         <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
 
             <?php if (! empty($task['date_due'])): ?>
-                <p>
+
+                <?php if ($task['recurrence_status'] == \Kanboard\Model\TaskModel::RECURRING_STATUS_PENDING): ?>
+                    <?= $this->app->tooltipLink('<i class="fa fa-refresh fa-rotate-90"></i>', $this->url->href('BoardTooltipController', 'recurrence', array('task_id' => $task['id'], 'project_id' => $task['project_id']))) ?>
+                <?php endif ?>
+
                 <span class="task-date
                     <?php if (time() > $task['date_due']): ?>
                          task-date-overdue
@@ -108,6 +112,16 @@
 	                 $CardPushDate_push_time = "00:00";
 	             }
 	         ?>
+
+                 <?php //Add a line break if a due date is set and we are displaying any push buttons
+                       if ( ($CardPushDate_interval_Monday +
+                             $CardPushDate_interval_1 +
+                             $CardPushDate_interval_2 +
+                             $CardPushDate_interval_3 > 0) && (! empty($task['date_due'])) )
+                             {
+                                echo "<br>";
+                             }
+                 ?>
 
 	         <?php if ($CardPushDate_interval_Monday > 0): ?>
 	                  <?=

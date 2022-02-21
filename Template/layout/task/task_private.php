@@ -133,7 +133,7 @@
 				       'plugin' => 'CardPushDate',
 				       'task_id' => $task['id'],
 		  	       	       'project_id' => $task['project_id'],
-	                               'push_days' => strval( (8 - intval(date('w'))) % 7),
+	                               'push_days' => strval( ((8 - intval(date('w')))) % 8),
 	                               'push_time' => $CardPushDate_push_time,
 		   	       )
 	       	       ) ?>
@@ -185,7 +185,7 @@
 					'task_id' => $task['id'],
 					'project_id' => $task['project_id'],
 	                                'push_days' => $CardPushDate_interval_3,
-	                               'push_time' => $CardPushDate_push_time,
+	                                'push_time' => $CardPushDate_push_time,
 				)
 			) ?>
 

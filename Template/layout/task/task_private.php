@@ -4,6 +4,9 @@
 
     $CardPushDate_show_comment_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment_in_collapsed");
     $CardPushDate_show_close_in_collapsed = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close_in_collapsed");
+
+    $CardPushDate_show_subtask = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_subtask");
+    $CardPushDate_show_subtask = ( intval($CardPushDate_show_subtask) > 0 ) ? 1 : 0;
 ?>
 
 <div class="
@@ -91,12 +94,15 @@
 	             $CardPushDate_show_edit = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_edit");
 	             $CardPushDate_show_close = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close");
 	             $CardPushDate_show_move = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_move");
+	             $CardPushDate_show_subtask = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_subtask");
 
 	             $CardPushDate_show_add_comment = ( intval($CardPushDate_show_add_comment) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_comment = ( intval($CardPushDate_show_comment) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_edit = ( intval($CardPushDate_show_edit) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_close = ( intval($CardPushDate_show_close) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_move = ( intval($CardPushDate_show_move) > 0 ) ? 1 : 0;
+	             $CardPushDate_show_subtask = ( intval($CardPushDate_show_subtask) > 0 ) ? 1 : 0;
+echo $CardPushDate_show_subtask;
 
 	             if ($CardPushDate_interval_1_randomize == "1") {
 	                 $CardPushDate_interval_1 = rand(1,$CardPushDate_interval_1);
@@ -205,6 +211,12 @@
 			<?= $this->modal->large('edit', t(''), 'TaskModificationController', 'edit', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
 	         <?php endif ?>
 	<?php endif ?>
+
+        <?php if ($CardPushDate_show_subtask == 1): ?>
+            <?php if (! empty($task['nb_subtasks'])): ?>
+                <?= $this->app->tooltipLink('<i class="fa fa-bars fa-fw"></i>'.round($task['nb_completed_subtasks'] / $task['nb_subtasks'] * 100, 0).'%', $this->url->href('BoardTooltipController', 'subtasks', array('task_id' => $task['id'], 'project_id' => $task['project_id']))) ?>
+            <?php endif ?>
+        <?php endif ?>
 
 	<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
 	         <?php if ($CardPushDate_show_close == 1) : ?>

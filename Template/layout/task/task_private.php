@@ -70,7 +70,7 @@
                 </span>
 
                 <?php if ($CardPushDate_show_age): ?>
-                    <span title="<?= t('Task age in days')?>" class="task-icon-age-total"><span class="ui-helper-hidden-accessible"><?= t('Task age in days') ?> </span><?= $this->dt->age($task['date_creation']) ?></span>
+                    <span title="<?= t('Days since last modification')?>" class="task-icon-age-total"><span class="ui-helper-hidden-accessible"><?= t('Days since last modification') ?> </span><?= $this->dt->age($task['date_modification']) ?></span>
                 <?php endif ?>
             <?php endif ?>
 

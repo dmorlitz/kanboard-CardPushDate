@@ -40,6 +40,7 @@ class CardPushSettingsController extends BaseController
                 'CardPushDate_show_close'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_close'),
                 'CardPushDate_show_move'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_move'),
                 'CardPushDate_show_subtask'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_subtask'),
+                'CardPushDate_show_age'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_age'),
                 'project_id' => $_REQUEST['project_id'],
 		),
             'errors' => $errors,
@@ -76,6 +77,7 @@ class CardPushSettingsController extends BaseController
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_close' => $values["CardPushDate_show_close"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_move' => $values["CardPushDate_show_move"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_subtask' => $values["CardPushDate_show_subtask"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_age' => $values["CardPushDate_show_age"]));
 
             //DMM: Settings panels seem to remain on the panel after saving - so I disabled this redirect back to the board
             //$this->response->redirect($this->helper->url->to('BoardViewController', 'show', array('project_id' => $project['id'])), true);

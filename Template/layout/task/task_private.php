@@ -7,6 +7,9 @@
 
     $CardPushDate_show_subtask = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_subtask");
     $CardPushDate_show_subtask = ( intval($CardPushDate_show_subtask) > 0 ) ? 1 : 0;
+
+    $CardPushDate_show_age = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_age");
+    $CardPushDate_show_age = ( intval($CardPushDate_show_age) > 0 ) ? 1 : 0;
 ?>
 
 <div class="
@@ -65,6 +68,10 @@
                     <i class="fa fa-calendar"></i>
                     <?= $this->dt->datetime($task['date_due']) ?>
                 </span>
+
+                <?php if ($CardPushDate_show_age): ?>
+                    <span title="<?= t('Task age in days')?>" class="task-icon-age-total"><span class="ui-helper-hidden-accessible"><?= t('Task age in days') ?> </span><?= $this->dt->age($task['date_creation']) ?></span>
+                <?php endif ?>
             <?php endif ?>
 
 <!--"DMM DMM"-->
@@ -102,7 +109,6 @@
 	             $CardPushDate_show_close = ( intval($CardPushDate_show_close) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_move = ( intval($CardPushDate_show_move) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_subtask = ( intval($CardPushDate_show_subtask) > 0 ) ? 1 : 0;
-echo $CardPushDate_show_subtask;
 
 	             if ($CardPushDate_interval_1_randomize == "1") {
 	                 $CardPushDate_interval_1 = rand(1,$CardPushDate_interval_1);

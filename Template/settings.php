@@ -52,6 +52,8 @@
 
         <?= $this->form->checkbox('CardPushDate_show_subtask', t('Show subtask icon'), 1, isset($values['CardPushDate_show_subtask']) && $values['CardPushDate_show_subtask'] == 1 ? true : false) ?>
 
+        <?= $this->form->checkbox('CardPushDate_show_age', t('Show task age'), 1, isset($values['CardPushDate_show_age']) && $values['CardPushDate_show_age'] == 1 ? true : false) ?>
+
 <br><b>NOTE:</b> Randomized dates will be between the specified interval and the previous interval.  Interval 3 must be the greatest and interval 1 the smallest.
 
     </fieldset>

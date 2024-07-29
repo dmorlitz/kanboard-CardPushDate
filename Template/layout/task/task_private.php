@@ -103,6 +103,7 @@
 	             $CardPushDate_show_move = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_move");
 	             $CardPushDate_show_subtask = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_subtask");
 
+	             $CardPushDate_interval_Monday = ( intval($CardPushDate_interval_Monday) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_add_comment = ( intval($CardPushDate_show_add_comment) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_comment = ( intval($CardPushDate_show_comment) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_edit = ( intval($CardPushDate_show_edit) > 0 ) ? 1 : 0;

@@ -96,6 +96,7 @@
 	             $CardPushDate_interval_3_randomize = ( intval($CardPushDate_interval_3_randomize) > 0 ) ? 1 : 0;
 
 	             $CardPushDate_interval_Monday = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_Monday");
+	             $CardPushDate_interval_PushDaysOnCard = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_interval_PushDaysOnCard");
 	             $CardPushDate_show_add_comment = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_add_comment");
 	             $CardPushDate_show_comment = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment");
 	             $CardPushDate_show_edit = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_edit");
@@ -104,6 +105,7 @@
 	             $CardPushDate_show_subtask = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_subtask");
 
 	             $CardPushDate_interval_Monday = ( intval($CardPushDate_interval_Monday) > 0 ) ? 1 : 0;
+	             $CardPushDate_interval_PushDaysOnCard = ( intval($CardPushDate_interval_PushDaysOnCard) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_add_comment = ( intval($CardPushDate_show_add_comment) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_comment = ( intval($CardPushDate_show_comment) > 0 ) ? 1 : 0;
 	             $CardPushDate_show_edit = ( intval($CardPushDate_show_edit) > 0 ) ? 1 : 0;
@@ -152,6 +154,7 @@
 	       	       ) ?>
 	         <?php endif ?>
 
+        <?php if ($CardPushDate_interval_PushDaysOnCard > 0): ?>
 	         <?php if ($CardPushDate_interval_1 > 0): ?>
 	                  <?=
 	                       $this->modal->confirmLink(
@@ -167,9 +170,7 @@
 		   	       )
 	       	       ) ?>
 	         <?php endif ?>
-	<?php endif ?>
 
-	<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
 	         <?php if ($CardPushDate_interval_2 > 0) : ?>
 			<?= $this->modal->confirmLink(
 				'+' . $CardPushDate_interval_2,
@@ -185,9 +186,7 @@
 			) ?>
 
 	         <?php endif ?>
-	<?php endif ?>
 
-	<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
 	         <?php if ($CardPushDate_interval_3 > 0) : ?>
 			<?= $this->modal->confirmLink(
 				'+' . $CardPushDate_interval_3,
@@ -203,9 +202,11 @@
 			) ?>
 
 	         <?php endif ?>
+
+		<?php if ($CardPushDate_interval_1 + $CardPushDate_interval_2 + $CardPushDate_interval_3 > 0) { echo " days | ";} ?>
 	<?php endif ?>
 
-	<?php if ($CardPushDate_interval_1 + $CardPushDate_interval_2 + $CardPushDate_interval_3 > 0) { echo " days | ";} ?>
+      <?php endif //Push Days on card ?>
 
 	<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
 	         <?php if ($CardPushDate_show_add_comment == 1) : ?>

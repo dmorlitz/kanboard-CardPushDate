@@ -40,6 +40,8 @@
 
         <?= $this->form->checkbox('CardPushDate_interval_Monday', t('Show "Push to Monday" on card'), 1, isset($values['CardPushDate_interval_Monday']) && $values['CardPushDate_interval_Monday'] == 1 ? true : false) ?>
 
+        <?= $this->form->checkbox('CardPushDate_interval_PushDaysOnCard', t('Show "+days" on card'), 1, isset($values['CardPushDate_interval_PushDaysOnCard']) && $values['CardPushDate_interval_PushDaysOnCard'] == 1 ? true : false) ?>
+
         <?= $this->form->checkbox('CardPushDate_show_comment', t('Show last comment on card'), 1, isset($values['CardPushDate_show_comment']) && $values['CardPushDate_show_comment'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_add_comment', t('Show add comment icon'), 1, isset($values['CardPushDate_show_add_comment']) && $values['CardPushDate_show_add_comment'] == 1 ? true : false) ?>

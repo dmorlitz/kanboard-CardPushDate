@@ -24,12 +24,14 @@
     $CardPushDate_show_comment = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_comment");
     $CardPushDate_show_edit = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_edit");
     $CardPushDate_show_close = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_close");
+    $CardPushDate_show_remove = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_remove");
     $CardPushDate_show_move = $this->task->projectMetadataModel->get($task['project_id'], "CardPushDate_show_move");
 
     $CardPushDate_show_add_comment = (intval($CardPushDate_show_add_comment) > 0) ? 1 : 0;
     $CardPushDate_show_comment = (intval($CardPushDate_show_comment) > 0) ? 1 : 0;
     $CardPushDate_show_edit = (intval($CardPushDate_show_edit) > 0) ? 1 : 0;
     $CardPushDate_show_close = (intval($CardPushDate_show_close) > 0) ? 1 : 0;
+    $CardPushDate_show_remove = (intval($CardPushDate_show_remove) > 0) ? 1 : 0;
     $CardPushDate_show_move = (intval($CardPushDate_show_move) > 0) ? 1 : 0;
 
     if ($CardPushDate_interval_1_randomize == "1") {
@@ -136,6 +138,12 @@
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php if ($CardPushDate_show_close == 1) : ?>
                 <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'close', ['task_id' => $task['id'], 'project_id' => $task['project_id']]) ?>
+         <?php endif ?>
+<?php endif ?>
+
+<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_show_remove == 1) : ?>
+                <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'remove', ['task_id' => $task['id'], 'project_id' => $task['project_id']]) ?>
          <?php endif ?>
 <?php endif ?>
 

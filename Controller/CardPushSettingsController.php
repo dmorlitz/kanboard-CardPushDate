@@ -39,6 +39,7 @@ class CardPushSettingsController extends BaseController
                 'CardPushDate_show_comment'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_comment'),
                 'CardPushDate_show_edit'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_edit'),
                 'CardPushDate_show_close'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_close'),
+                'CardPushDate_show_remove'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_remove'),
                 'CardPushDate_show_move'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_move'),
                 'CardPushDate_show_subtask'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_subtask'),
                 'CardPushDate_show_age'   => $this->projectMetadataModel->get($project['id'], 'CardPushDate_show_age'),
@@ -77,6 +78,7 @@ class CardPushSettingsController extends BaseController
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_comment' => $values["CardPushDate_show_comment"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_edit' => $values["CardPushDate_show_edit"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_close' => $values["CardPushDate_show_close"]));
+	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_remove' => $values["CardPushDate_show_remove"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_move' => $values["CardPushDate_show_move"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_subtask' => $values["CardPushDate_show_subtask"]));
 	    $this->projectMetadataModel->save($project['id'], array('CardPushDate_show_age' => $values["CardPushDate_show_age"]));

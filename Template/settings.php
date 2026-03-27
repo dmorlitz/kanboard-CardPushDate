@@ -50,6 +50,8 @@
 
         <?= $this->form->checkbox('CardPushDate_show_close', t('Show close task icon'), 1, isset($values['CardPushDate_show_close']) && $values['CardPushDate_show_close'] == 1 ? true : false) ?>
 
+        <?= $this->form->checkbox('CardPushDate_show_remove', t('Show remove task icon'), 1, isset($values['CardPushDate_show_remove']) && $values['CardPushDate_show_remove'] == 1 ? true : false) ?>
+
         <?= $this->form->checkbox('CardPushDate_show_move', t('Show move task icon'), 1, isset($values['CardPushDate_show_move']) && $values['CardPushDate_show_move'] == 1 ? true : false) ?>
 
         <?= $this->form->checkbox('CardPushDate_show_subtask', t('Show subtask icon'), 1, isset($values['CardPushDate_show_subtask']) && $values['CardPushDate_show_subtask'] == 1 ? true : false) ?>

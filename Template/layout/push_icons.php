@@ -22,6 +22,7 @@
              $CardPushDate_show_comment = ( intval($CardPushDate_show_comment) > 0 ) ? 1 : 0;
              $CardPushDate_show_edit = ( intval($CardPushDate_show_edit) > 0 ) ? 1 : 0;
              $CardPushDate_show_close = ( intval($CardPushDate_show_close) > 0 ) ? 1 : 0;
+             $CardPushDate_show_remove = ( intval($CardPushDate_show_remove) > 0 ) ? 1 : 0;
              $CardPushDate_show_move = ( intval($CardPushDate_show_move) > 0 ) ? 1 : 0;
 
              if ($CardPushDate_interval_1_randomize == "1") {
@@ -109,6 +110,12 @@
 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
          <?php if ($CardPushDate_show_close == 1) : ?>
                 <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'close', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
+         <?php endif ?>
+<?php endif ?>
+
+<?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+         <?php if ($CardPushDate_show_remove == 1) : ?>
+                <?= $this->modal->confirm('times', t(''), 'TaskStatusController', 'trash', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
          <?php endif ?>
 <?php endif ?>
 

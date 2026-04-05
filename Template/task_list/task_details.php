@@ -243,13 +243,6 @@
                 }
             ?>
 
-            <?php //DMM: Showing tags in the compact view ?>
-            <?php foreach ($task['tags'] as $tag): ?>
-                <span class="table-list-category task-list-tag <?= $tag['color_id'] ? "color-{$tag['color_id']}" : '' ?>">
-                    <?= $this->text->e($tag['name']) ?>
-                </span>
-            <?php endforeach ?>
-
         <?php endif; ?>
     <?php else: ?>
         <div class="task-board-expanded">

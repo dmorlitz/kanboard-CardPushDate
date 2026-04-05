@@ -13,8 +13,8 @@ class Plugin extends Base
         $this->template->hook->attach('template:board:task:footer', 'CardPushDate:layout/footer');
         $this->template->hook->attach('template:project:sidebar', 'CardPushDate:layout/sidebar');
         $this->template->hook->attach('template:task:dropdown', 'CardPushDate:layout/task/dropdown');
-	$this->template->setTemplateOverride('board/task_list', 'CardPushDate:layout/task/task_title');
 	$this->template->setTemplateOverride('board/task_private', 'CardPushDate:layout/task/task_private');
+        $this->template->setTemplateOverride('task_list/task_details', 'CardPushDate:task_list/task_details');
     }
 
     public function getPluginName()

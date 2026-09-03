@@ -211,7 +211,7 @@
 
             <?php endif //Push Days on card ?>
 
-      /* DMM: CSS required for the tooltip popup - for the external link icon that this plugin makes available /*
+      <!-- /* DMM: CSS required for the tooltip popup - for the external link icon that this plugin makes available /* -->
       <style>
       /* Container positioning */
       .custom-external-link-container {
